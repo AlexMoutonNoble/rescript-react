@@ -274,9 +274,13 @@ external useMemo7: (@uncurry (unit => 'any), ('a, 'b, 'c, 'd, 'e, 'f, 'g)) => 'a
 
 /* This is used as return values */
 type callback<'input, 'output> = 'input => 'output
+type callbackU<'input, 'output> = (. 'input) => 'output
 
 @module("react")
 external useCallback: (@uncurry ('input => 'output)) => callback<'input, 'output> = "useCallback"
+
+@module("react")
+external useCallbackU: (@uncurry ('input => 'output)) => callbackU<'input, 'output> = "useCallback"
 
 @module("react")
 external useCallback0: (
@@ -285,11 +289,27 @@ external useCallback0: (
 ) => callback<'input, 'output> = "useCallback"
 
 @module("react")
+external useCallback0U: (
+  @uncurry ('input => 'output),
+  @as(json`[]`) _,
+) => callbackU<'input, 'output> = "useCallback"
+
+
+@module("react")
 external useCallback1: (@uncurry ('input => 'output), array<'a>) => callback<'input, 'output> =
   "useCallback"
 
 @module("react")
+external useCallback1U: (@uncurry ('input => 'output), array<'a>) => callbackU<'input, 'output> =
+  "useCallback"
+
+
+@module("react")
 external useCallback2: (@uncurry ('input => 'output), ('a, 'b)) => callback<'input, 'output> =
+  "useCallback"
+
+@module("react")
+external useCallback2U: (@uncurry ('input => 'output), ('a, 'b)) => callbackU<'input, 'output> =
   "useCallback"
 
 @module("react")
@@ -299,10 +319,24 @@ external useCallback3: (
 ) => callback<'input, 'output> = "useCallback"
 
 @module("react")
+external useCallback3U: (
+  @uncurry ('input => 'output),
+  ('a, 'b, 'c),
+) => callbackU<'input, 'output> = "useCallback"
+
+
+@module("react")
 external useCallback4: (
   @uncurry ('input => 'output),
   ('a, 'b, 'c, 'd),
 ) => callback<'input, 'output> = "useCallback"
+
+@module("react")
+external useCallback4U: (
+  @uncurry ('input => 'output),
+  ('a, 'b, 'c, 'd),
+) => callbackU<'input, 'output> = "useCallback"
+
 
 @module("react")
 external useCallback5: (
@@ -311,16 +345,38 @@ external useCallback5: (
 ) => callback<'input, 'output> = "useCallback"
 
 @module("react")
+external useCallback5U: (
+  @uncurry ('input => 'output),
+  ('a, 'b, 'c, 'd, 'e),
+) => callbackU<'input, 'output> = "useCallback"
+
+
+@module("react")
 external useCallback6: (
   @uncurry ('input => 'output),
   ('a, 'b, 'c, 'd, 'e, 'f),
 ) => callback<'input, 'output> = "useCallback"
 
 @module("react")
+external useCallback6U: (
+  @uncurry ('input => 'output),
+  ('a, 'b, 'c, 'd, 'e, 'f),
+) => callbackU<'input, 'output> = "useCallback"
+
+
+@module("react")
 external useCallback7: (
   @uncurry ('input => 'output),
   ('a, 'b, 'c, 'd, 'e, 'f, 'g),
 ) => callback<'input, 'output> = "useCallback"
+
+
+@module("react")
+external useCallback7U: (
+  @uncurry ('input => 'output),
+  ('a, 'b, 'c, 'd, 'e, 'f, 'g),
+) => callbackU<'input, 'output> = "useCallback"
+
 
 @module("react")
 external useContext: Context.t<'any> => 'any = "useContext"
